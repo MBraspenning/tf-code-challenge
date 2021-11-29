@@ -10,35 +10,41 @@ import RelayEnvironment from './RelayEnvironment';
 
 const {Suspense} = React;
 
-const FilmTitlesQuery = graphql`
-  query AppFilmTitlesQuery {
-    allFilms {
-      films {
-        id
-        title
-      }
+const HoogstratenWeatherQuery = graphql`
+    query AppHoogstratenWeatherQuery ($city: String!) {
+        getCityByName (name: $city, config: {units: metric, lang: nl}) {
+            name
+            country
+            weather {
+                summary {
+                    title
+                    description
+                    icon
+                }
+                temperature {
+                    actual
+                    feelsLike
+                    min
+                    max
+                }
+            }
+        }
     }
-  }
 `;
 
-const preloadedQuery = loadQuery(RelayEnvironment, FilmTitlesQuery, {});
+const preloadedQuery = loadQuery(RelayEnvironment, HoogstratenWeatherQuery, {city: "Hoogstraten"});
 
 interface AppProps {
     preloadedQuery: PreloadedQuery<any>
 }
 
 function App(props: AppProps) {
-    const data = usePreloadedQuery(FilmTitlesQuery, props.preloadedQuery);
+    const data = usePreloadedQuery(HoogstratenWeatherQuery, props.preloadedQuery);
 
     return (
         <div className="App">
-            {
-                data.allFilms.films.map((film: { id: string, title: string }) => {
-                    return (
-                        <p key={film.id}>{film.title}</p>
-                    )
-                })
-            }
+            <h1>{data.getCityByName.name}</h1>
+            <p>{data.getCityByName.weather.summary.description}</p>
         </div>
     );
 }

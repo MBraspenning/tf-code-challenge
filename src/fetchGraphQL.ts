@@ -1,7 +1,7 @@
 import {Variables} from "relay-runtime";
 
 const fetchGraphQL = async (query: string | null | undefined, variables: Variables) => {
-    const response = await fetch('https://swapi-graphql.netlify.app/.netlify/functions/index', {
+    const response = await fetch('https://graphql-weather-api.herokuapp.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
