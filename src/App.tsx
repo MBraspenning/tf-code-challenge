@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useReducer} from 'react';
 import './App.css';
 import {graphql} from 'babel-plugin-relay/macro';
 import {
@@ -7,6 +7,8 @@ import {
     usePreloadedQuery, PreloadedQuery,
 } from 'react-relay/hooks';
 import RelayEnvironment from './RelayEnvironment';
+import UserInput from "./components/UserInput";
+import {Context, initialState, reducer} from "./store/store";
 
 const {Suspense} = React;
 
@@ -43,6 +45,8 @@ function App(props: AppProps) {
 
     return (
         <div className="App">
+            <UserInput />
+
             <h1>{data.getCityByName.name}</h1>
             <p>{data.getCityByName.weather.summary.description}</p>
         </div>
@@ -50,11 +54,15 @@ function App(props: AppProps) {
 }
 
 function AppRoot() {
+    const [state, dispatch] = useReducer(reducer, initialState);
+
     return (
         <RelayEnvironmentProvider environment={RelayEnvironment}>
-            <Suspense fallback={'Loading...'}>
-                <App preloadedQuery={preloadedQuery}/>
-            </Suspense>
+            <Context.Provider value={{ state, dispatch }}>
+                <Suspense fallback={'Loading...'}>
+                    <App preloadedQuery={preloadedQuery}/>
+                </Suspense>
+            </Context.Provider>
         </RelayEnvironmentProvider>
     );
 }
