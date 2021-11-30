@@ -31,8 +31,12 @@ const UserInput = () => {
                 onKeyDown={handleKeyPress}
                 autoFocus
                 placeholder='Enter a city'
+                data-testid='city-input'
             />
-            <button onClick={handleSubmit}>
+            <button
+                onClick={handleSubmit}
+                data-testid='city-submit'
+            >
                 Go!
             </button>
         </div>

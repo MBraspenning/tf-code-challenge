@@ -1,18 +1,18 @@
 import React from 'react';
 import {ActionType} from "./actions";
 
-interface IAction {
+export interface IAction {
     type: ActionType
     payload?: any
 }
 
-interface IState {
+export interface IState {
     city: string
 }
 
-interface IContext {
+export interface IContext {
     state: IState
-    dispatch: (action: IAction) => void
+    dispatch: React.Dispatch<IAction>
 }
 
 export const initialState: IState = {
