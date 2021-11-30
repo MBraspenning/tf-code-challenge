@@ -8,14 +8,29 @@ const UserInput = () => {
 
     const [inputValue, setInputValue] = useState(state.city);
 
+    const handleSubmit = () => {
+        dispatch({ type: ActionType.SetCity, payload: inputValue });
+    }
+
+    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            handleSubmit();
+        }
+
+        if (event.key === 'Escape') {
+            setInputValue('');
+        }
+    }
+
     return (
         <div>
             <input
                 type='text'
                 value={inputValue}
                 onChange={event => setInputValue(event.target.value)}
+                onKeyDown={handleKeyPress}
             />
-            <button onClick={() => dispatch({type: ActionType.SetCity, payload: inputValue})}>
+            <button onClick={handleSubmit}>
                 Go!
             </button>
         </div>
