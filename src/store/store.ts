@@ -1,10 +1,5 @@
 import React from 'react';
-import {ActionType} from "./actions";
-
-export interface IAction {
-    type: ActionType
-    payload?: any
-}
+import {ActionType, IAction} from "./actions";
 
 export interface IState {
     city: string
