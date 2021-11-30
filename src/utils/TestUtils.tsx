@@ -1,9 +1,10 @@
 import React, {ReactElement, useReducer} from "react";
 import { render as tlRender } from '@testing-library/react';
-import {Context, IAction, IState, reducer} from "../store/store";
+import {Context, IState, reducer} from "../store/store";
 import {RelayEnvironmentProvider} from "react-relay";
 import { createMockEnvironment } from 'relay-test-utils';
 import {Environment} from "relay-runtime/lib/store/RelayStoreTypes";
+import {IAction} from "../store/actions";
 
 const defaultInitialState = {
     city: ''
