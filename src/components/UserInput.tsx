@@ -29,6 +29,8 @@ const UserInput = () => {
                 value={inputValue}
                 onChange={event => setInputValue(event.target.value)}
                 onKeyDown={handleKeyPress}
+                autoFocus
+                placeholder='Enter a city'
             />
             <button onClick={handleSubmit}>
                 Go!
