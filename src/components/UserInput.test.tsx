@@ -1,19 +1,19 @@
 import React from 'react';
 import UserInput from "./UserInput";
-import {render} from "../utils/TestUtils";
+import {renderWith} from "../utils/TestUtils";
 import {fireEvent} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {ActionType} from "../store/actions";
 
 describe('UserInput', () => {
     it('Should autofocus text input', () => {
-        const { getByTestId } = render(<UserInput />, { city: '' });
+        const { getByTestId } = renderWith(<UserInput />);
 
         expect(getByTestId('city-input')).toHaveFocus();
     });
 
     it('Should clear text input with Escape key', () => {
-        const { getByTestId } = render(<UserInput />, { city: 'Antwerp'});
+        const { getByTestId } = renderWith(<UserInput />, { mockInitialState: { city: 'Antwerp' } });
 
         expect(getByTestId('city-input')).toHaveValue('Antwerp');
 
@@ -25,7 +25,7 @@ describe('UserInput', () => {
     it('Should submit value with Enter key', () => {
         const mockDispatch = jest.fn();
 
-        const { getByTestId } = render(<UserInput />, { city: ''}, mockDispatch);
+        const { getByTestId } = renderWith(<UserInput />, { mockDispatch });
 
         userEvent.type(getByTestId('city-input'), 'Antwerp');
         fireEvent.keyDown(getByTestId('city-input'), {key: 'Enter'});
@@ -37,7 +37,7 @@ describe('UserInput', () => {
     it('Should submit value with submit button', () => {
         const mockDispatch = jest.fn();
 
-        const { getByTestId } = render(<UserInput />, { city: ''}, mockDispatch);
+        const { getByTestId } = renderWith(<UserInput />, { mockDispatch });
 
         userEvent.type(getByTestId('city-input'), 'Antwerp');
         userEvent.click(getByTestId('city-submit'));

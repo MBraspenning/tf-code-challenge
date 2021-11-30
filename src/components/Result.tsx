@@ -12,9 +12,9 @@ const Result = ({ queryReference }: IProps) => {
 
     return (
         <div>
-            <h1>{data.getCityByName?.name}</h1>
-            <p>{data.getCityByName?.weather?.summary?.description}</p>
-            <p>{data.getCityByName?.weather?.temperature?.actual}</p>
+            <h1 data-testid='result-city'>{data.getCityByName?.name}</h1>
+            <p data-testid='result-description'>{data.getCityByName?.weather?.summary?.description}</p>
+            <p data-testid='result-actual'>{data.getCityByName?.weather?.temperature?.actual}</p>
         </div>
     )
 }
