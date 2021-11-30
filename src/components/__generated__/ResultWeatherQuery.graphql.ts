@@ -4,10 +4,10 @@
 
 import { ConcreteRequest } from "relay-runtime";
 
-export type AppHoogstratenWeatherQueryVariables = {
+export type ResultWeatherQueryVariables = {
     city: string;
 };
-export type AppHoogstratenWeatherQueryResponse = {
+export type ResultWeatherQueryResponse = {
     readonly getCityByName: {
         readonly name: string | null;
         readonly country: string | null;
@@ -26,15 +26,15 @@ export type AppHoogstratenWeatherQueryResponse = {
         } | null;
     } | null;
 };
-export type AppHoogstratenWeatherQuery = {
-    readonly response: AppHoogstratenWeatherQueryResponse;
-    readonly variables: AppHoogstratenWeatherQueryVariables;
+export type ResultWeatherQuery = {
+    readonly response: ResultWeatherQueryResponse;
+    readonly variables: ResultWeatherQueryVariables;
 };
 
 
 
 /*
-query AppHoogstratenWeatherQuery(
+query ResultWeatherQuery(
   $city: String!
 ) {
   getCityByName(name: $city, config: {units: metric, lang: nl}) {
@@ -182,7 +182,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "AppHoogstratenWeatherQuery",
+    "name": "ResultWeatherQuery",
     "selections": [
       {
         "alias": null,
@@ -206,7 +206,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "AppHoogstratenWeatherQuery",
+    "name": "ResultWeatherQuery",
     "selections": [
       {
         "alias": null,
@@ -232,14 +232,14 @@ return {
     ]
   },
   "params": {
-    "cacheID": "12177f35b7be58359c2645513844b9d8",
+    "cacheID": "2ea97c87d3f7a30a60feb6e5235a17bc",
     "id": null,
     "metadata": {},
-    "name": "AppHoogstratenWeatherQuery",
+    "name": "ResultWeatherQuery",
     "operationKind": "query",
-    "text": "query AppHoogstratenWeatherQuery(\n  $city: String!\n) {\n  getCityByName(name: $city, config: {units: metric, lang: nl}) {\n    name\n    country\n    weather {\n      summary {\n        title\n        description\n        icon\n      }\n      temperature {\n        actual\n        feelsLike\n        min\n        max\n      }\n    }\n    id\n  }\n}\n"
+    "text": "query ResultWeatherQuery(\n  $city: String!\n) {\n  getCityByName(name: $city, config: {units: metric, lang: nl}) {\n    name\n    country\n    weather {\n      summary {\n        title\n        description\n        icon\n      }\n      temperature {\n        actual\n        feelsLike\n        min\n        max\n      }\n    }\n    id\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = 'a8438afac9548670dcbc0350a457ab7a';
+(node as any).hash = 'b1906a40e5a0a6c39a0ac91a9b8c3444';
 export default node;

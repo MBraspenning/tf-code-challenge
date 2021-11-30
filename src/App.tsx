@@ -1,19 +1,20 @@
-import React, {useReducer} from 'react';
+import React, {useContext, useEffect, useReducer} from 'react';
 import './App.css';
 import {graphql} from 'babel-plugin-relay/macro';
 import {
     RelayEnvironmentProvider,
-    loadQuery,
-    usePreloadedQuery, PreloadedQuery,
 } from 'react-relay/hooks';
 import RelayEnvironment from './RelayEnvironment';
 import UserInput from "./components/UserInput";
 import {Context, initialState, reducer} from "./store/store";
+import Result from "./components/Result";
+import {useQueryLoader} from "react-relay";
+import type {AppWeatherQuery as AppWeatherQueryType} from "./__generated__/AppWeatherQuery.graphql";
 
 const {Suspense} = React;
 
-const HoogstratenWeatherQuery = graphql`
-    query AppHoogstratenWeatherQuery ($city: String!) {
+export const WeatherQuery = graphql`
+    query AppWeatherQuery ($city: String!) {
         getCityByName (name: $city, config: {units: metric, lang: nl}) {
             name
             country
@@ -34,21 +35,25 @@ const HoogstratenWeatherQuery = graphql`
     }
 `;
 
-const preloadedQuery = loadQuery(RelayEnvironment, HoogstratenWeatherQuery, {city: "Hoogstraten"});
+function App() {
+    const [queryReference, loadQuery] = useQueryLoader<AppWeatherQueryType>(WeatherQuery);
+    const context = useContext(Context);
+    const { state } = context;
 
-interface AppProps {
-    preloadedQuery: PreloadedQuery<any>
-}
-
-function App(props: AppProps) {
-    const data = usePreloadedQuery(HoogstratenWeatherQuery, props.preloadedQuery);
+    useEffect(() => {
+        loadQuery({ city: state.city });
+    }, [loadQuery, state.city])
 
     return (
         <div className="App">
             <UserInput />
 
-            <h1>{data.getCityByName.name}</h1>
-            <p>{data.getCityByName.weather.summary.description}</p>
+            <Suspense fallback={'Loading...'}>
+                {
+                    queryReference &&
+                    <Result queryReference={queryReference} />
+                }
+            </Suspense>
         </div>
     );
 }
@@ -59,9 +64,7 @@ function AppRoot() {
     return (
         <RelayEnvironmentProvider environment={RelayEnvironment}>
             <Context.Provider value={{ state, dispatch }}>
-                <Suspense fallback={'Loading...'}>
-                    <App preloadedQuery={preloadedQuery}/>
-                </Suspense>
+                <App />
             </Context.Provider>
         </RelayEnvironmentProvider>
     );
