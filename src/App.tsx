@@ -4,7 +4,7 @@ import {graphql} from 'babel-plugin-relay/macro';
 import {
     RelayEnvironmentProvider,
 } from 'react-relay/hooks';
-import RelayEnvironment from './RelayEnvironment';
+import RelayEnvironment from './API/RelayEnvironment';
 import UserInput from "./components/UserInput";
 import {Context, initialState, reducer} from "./store/store";
 import Result from "./components/Result";
