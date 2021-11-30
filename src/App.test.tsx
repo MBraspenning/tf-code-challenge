@@ -1,9 +1,11 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
 import App from './App';
+import {renderWith} from "./utils/TestUtils";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+    it('Should display loading indicator on initial render', () => {
+        const { getByText } = renderWith(<App />);
+
+        expect(getByText('Loading...')).toBeInTheDocument();
+    });
 });
