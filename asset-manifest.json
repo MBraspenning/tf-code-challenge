@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/tf-code-challenge/static/css/main.1896809d.chunk.css",
+    "main.css": "/tf-code-challenge/static/css/main.5fe0405f.chunk.css",
     "main.js": "/tf-code-challenge/static/js/main.d9892346.chunk.js",
     "main.js.map": "/tf-code-challenge/static/js/main.d9892346.chunk.js.map",
     "runtime-main.js": "/tf-code-challenge/static/js/runtime-main.e30214d9.js",
@@ -10,13 +10,13 @@
     "static/js/3.b1135dfc.chunk.js": "/tf-code-challenge/static/js/3.b1135dfc.chunk.js",
     "static/js/3.b1135dfc.chunk.js.map": "/tf-code-challenge/static/js/3.b1135dfc.chunk.js.map",
     "index.html": "/tf-code-challenge/index.html",
-    "static/css/main.1896809d.chunk.css.map": "/tf-code-challenge/static/css/main.1896809d.chunk.css.map",
+    "static/css/main.5fe0405f.chunk.css.map": "/tf-code-challenge/static/css/main.5fe0405f.chunk.css.map",
     "static/js/2.6836ed29.chunk.js.LICENSE.txt": "/tf-code-challenge/static/js/2.6836ed29.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e30214d9.js",
     "static/js/2.6836ed29.chunk.js",
-    "static/css/main.1896809d.chunk.css",
+    "static/css/main.5fe0405f.chunk.css",
     "static/js/main.d9892346.chunk.js"
   ]
 }
