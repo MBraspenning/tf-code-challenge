@@ -1,6 +1,9 @@
 import React, {useContext, useState} from 'react';
 import {Context} from "../store/store";
 import {ActionType} from "../store/actions";
+import {FiSearch, TiDelete} from "react-icons/all";
+
+import '../styles/components/UserInput.scss';
 
 const UserInput = () => {
     const context = useContext(Context);
@@ -12,33 +15,48 @@ const UserInput = () => {
         dispatch({ type: ActionType.SetCity, payload: inputValue });
     }
 
+    const handleClear = () => {
+        setInputValue('');
+    }
+
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             handleSubmit();
         }
 
         if (event.key === 'Escape') {
-            setInputValue('');
+            handleClear();
         }
     }
 
     return (
-        <div>
-            <input
-                type='text'
-                value={inputValue}
-                onChange={event => setInputValue(event.target.value)}
-                onKeyDown={handleKeyPress}
-                autoFocus
-                placeholder='Enter a city'
-                data-testid='city-input'
-            />
-            <button
-                onClick={handleSubmit}
-                data-testid='city-submit'
-            >
-                Go!
-            </button>
+        <div className='user-input'>
+            <div className='user-input_search'>
+                <input
+                    type='text'
+                    value={inputValue}
+                    onChange={event => setInputValue(event.target.value)}
+                    onKeyDown={handleKeyPress}
+                    autoFocus
+                    placeholder='Enter a city'
+                    data-testid='city-input'
+                    className='user-input_text'
+                />
+                <button
+                    onClick={handleClear}
+                    data-testid='city-clear'
+                    className='user-input_clear user-input_button'
+                >
+                    <TiDelete />
+                </button>
+                <button
+                    onClick={handleSubmit}
+                    data-testid='city-submit'
+                    className='user-input_submit user-input_button'
+                >
+                    <FiSearch />
+                </button>
+            </div>
         </div>
     )
 }
