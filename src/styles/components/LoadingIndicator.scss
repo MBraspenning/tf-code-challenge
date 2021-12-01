@@ -1,0 +1,14 @@
+@import '../variables';
+
+.loading-indicator {
+  color: $accent-1;
+  font-size: 5rem;
+
+  svg {
+    animation: spin 2s linear infinite;
+  }
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg) }
+}

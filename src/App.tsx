@@ -11,6 +11,7 @@ import Result from "./components/Result";
 import {useQueryLoader} from "react-relay";
 import type {AppWeatherQuery as AppWeatherQueryType} from "./__generated__/AppWeatherQuery.graphql";
 import Header from "./components/Header";
+import LoadingIndicator from "./components/LoadingIndicator";
 
 const {Suspense} = React;
 
@@ -60,7 +61,7 @@ function App() {
             <UserInput />
 
             <div className='result-container'>
-                <Suspense fallback={'Loading...'}>
+                <Suspense fallback={<LoadingIndicator />}>
                     {
                         queryReference &&
                         <Result queryReference={queryReference} />
