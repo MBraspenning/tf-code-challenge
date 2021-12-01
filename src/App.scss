@@ -18,8 +18,12 @@
     border-radius: 20px;
     padding: 4rem 5rem;
     width: 500px;
+    height: 550px;
     max-width: 100%;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .background-blob {
