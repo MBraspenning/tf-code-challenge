@@ -12,6 +12,8 @@ const UserInput = () => {
     const [inputValue, setInputValue] = useState(state.city);
 
     const handleSubmit = () => {
+        if (inputValue === '') return;
+
         dispatch({ type: ActionType.SetCity, payload: inputValue });
     }
 
