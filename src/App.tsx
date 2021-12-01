@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useReducer} from 'react';
-import './App.css';
+import './App.scss';
 import {graphql} from 'babel-plugin-relay/macro';
 import {
     RelayEnvironmentProvider,
