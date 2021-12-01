@@ -23,6 +23,14 @@ export type AppWeatherQueryResponse = {
                 readonly min: number | null;
                 readonly max: number | null;
             } | null;
+            readonly wind: {
+                readonly speed: number | null;
+            } | null;
+            readonly clouds: {
+                readonly all: number | null;
+                readonly visibility: number | null;
+                readonly humidity: number | null;
+            } | null;
         } | null;
     } | null;
 };
@@ -51,6 +59,14 @@ query AppWeatherQuery(
         feelsLike
         min
         max
+      }
+      wind {
+        speed
+      }
+      clouds {
+        all
+        visibility
+        humidity
       }
     }
     id
@@ -173,6 +189,56 @@ v4 = {
         }
       ],
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Wind",
+      "kind": "LinkedField",
+      "name": "wind",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "speed",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Clouds",
+      "kind": "LinkedField",
+      "name": "clouds",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "all",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "visibility",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "humidity",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
     }
   ],
   "storageKey": null
@@ -232,14 +298,14 @@ return {
     ]
   },
   "params": {
-    "cacheID": "daca7935cfe74aaa5598ea69e6673101",
+    "cacheID": "fdcefdd7dce429c61328a1fe0ca78f51",
     "id": null,
     "metadata": {},
     "name": "AppWeatherQuery",
     "operationKind": "query",
-    "text": "query AppWeatherQuery(\n  $city: String!\n) {\n  getCityByName(name: $city, config: {units: metric, lang: nl}) {\n    name\n    country\n    weather {\n      summary {\n        title\n        description\n        icon\n      }\n      temperature {\n        actual\n        feelsLike\n        min\n        max\n      }\n    }\n    id\n  }\n}\n"
+    "text": "query AppWeatherQuery(\n  $city: String!\n) {\n  getCityByName(name: $city, config: {units: metric, lang: nl}) {\n    name\n    country\n    weather {\n      summary {\n        title\n        description\n        icon\n      }\n      temperature {\n        actual\n        feelsLike\n        min\n        max\n      }\n      wind {\n        speed\n      }\n      clouds {\n        all\n        visibility\n        humidity\n      }\n    }\n    id\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = 'bdce24e7188288768cdf928161c2f2da';
+(node as any).hash = 'b7f36042775b546902520c09c1c12d98';
 export default node;

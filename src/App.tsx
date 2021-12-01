@@ -10,6 +10,7 @@ import {Context, initialState, reducer} from "./store/store";
 import Result from "./components/Result";
 import {useQueryLoader} from "react-relay";
 import type {AppWeatherQuery as AppWeatherQueryType} from "./__generated__/AppWeatherQuery.graphql";
+import Header from "./components/Header";
 
 const {Suspense} = React;
 
@@ -30,6 +31,14 @@ export const WeatherQuery = graphql`
                     min
                     max
                 }
+                wind {
+                    speed
+                }
+                clouds {
+                    all
+                    visibility
+                    humidity
+                }
             }
         }
     }
@@ -46,6 +55,8 @@ function App() {
 
     return (
         <div className="App">
+            <Header />
+
             <UserInput />
 
             <Suspense fallback={'Loading...'}>

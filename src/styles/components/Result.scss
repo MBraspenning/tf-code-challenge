@@ -1,5 +1,78 @@
+@import '../variables';
+
 .result-card {
   background: #FFF;
   border-radius: 20px;
-  padding: 4rem 5rem
+  padding: 4rem 5rem;
+
+  span {
+    color: $text-light;
+    font-weight: 300;
+  }
+
+  .result-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $text-lighter;
+
+    .result-city {
+      color: $background-1;
+      font-size: 2rem;
+      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: .2rem;
+    }
+
+    .result-description {
+      font-size: 1.2rem;
+    }
+
+    .result-actual {
+      font-size: 3.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .result-min-max {
+      span {
+        padding: 0 .5rem;
+      }
+    }
+  }
+
+  .result-details {
+    padding-top: 2rem;
+
+    .result-details-row {
+      display: flex;
+      justify-content: space-between;
+      padding: .5rem 0;
+
+      &:first-of-type {
+        padding-top: 0;
+      }
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+
+      .result-detail {
+        width: 50%;
+        min-width: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .result-detail-label {
+          text-transform: uppercase;
+          font-size: .75rem;
+        }
+
+        .result-detail-value {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
 }

@@ -5,9 +5,14 @@
 
   .user-input_search {
     display: flex;
+    justify-content: center;
+    align-items: stretch;
 
     .user-input_text {
       flex: 1;
+      min-width: 100%;
+      font-size: 1.2rem;
+      font-weight: 300;
       border: 1px solid $accent-1;
       border-right: none;
       border-bottom-left-radius: 4px;

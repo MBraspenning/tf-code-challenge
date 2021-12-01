@@ -1,0 +1,10 @@
+@import '../variables';
+
+.header {
+  h1 {
+    color: $accent-1;
+    font-size: 3rem;
+    margin-bottom: 0;
+    text-align: center;
+  }
+}
