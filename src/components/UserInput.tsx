@@ -1,7 +1,8 @@
 import React, {useContext, useState} from 'react';
 import {Context} from "../store/store";
 import {ActionType} from "../store/actions";
-import {FiSearch, TiDelete} from "react-icons/all";
+import {FiSearch} from "react-icons/fi";
+import {TiDelete} from "react-icons/ti";
 
 import '../styles/components/UserInput.scss';
 

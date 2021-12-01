@@ -11,7 +11,7 @@ export interface IContext {
 }
 
 export const initialState: IState = {
-    city: ''
+    city: 'Antwerpen'
 }
 
 export const reducer = (state: IState, action: IAction): IState => {

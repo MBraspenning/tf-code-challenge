@@ -4,8 +4,8 @@ import {renderWith} from "./utils/TestUtils";
 
 describe('App', () => {
     it('Should display loading indicator on initial render', () => {
-        const { getByText } = renderWith(<App />);
+        const { getByTestId } = renderWith(<App />);
 
-        expect(getByText('Loading...')).toBeInTheDocument();
+        expect(getByTestId('loading-indicator')).toBeInTheDocument();
     });
 });
