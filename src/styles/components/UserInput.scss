@@ -53,3 +53,9 @@
     }
   }
 }
+
+@media screen and (max-width: $small) {
+  .user-input {
+    padding: 2.5rem 0;
+  }
+}
