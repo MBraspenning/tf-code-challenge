@@ -1,10 +1,6 @@
 @import '../variables';
 
 .result-card {
-  background: #FFF;
-  border-radius: 20px;
-  padding: 4rem 5rem;
-
   span {
     color: $text-light;
     font-weight: 300;
@@ -73,6 +69,12 @@
           font-size: 1.25rem;
         }
       }
+    }
+  }
+
+  .result-invalid {
+    p {
+      color: $text-light;
     }
   }
 }

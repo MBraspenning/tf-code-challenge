@@ -59,12 +59,14 @@ function App() {
 
             <UserInput />
 
-            <Suspense fallback={'Loading...'}>
-                {
-                    queryReference &&
-                    <Result queryReference={queryReference} />
-                }
-            </Suspense>
+            <div className='result-container'>
+                <Suspense fallback={'Loading...'}>
+                    {
+                        queryReference &&
+                        <Result queryReference={queryReference} />
+                    }
+                </Suspense>
+            </div>
         </div>
     );
 }

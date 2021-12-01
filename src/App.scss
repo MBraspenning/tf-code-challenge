@@ -5,5 +5,12 @@
   align-items: center;
 
   padding: 4rem 5rem;
+  box-sizing: border-box;
   min-height: 100vh;
+
+  .result-container {
+    background: #FFF;
+    border-radius: 20px;
+    padding: 4rem 5rem;
+  }
 }
