@@ -32,6 +32,9 @@
     }
 
     .result-min-max {
+      display: flex;
+      flex-wrap: wrap;
+
       span {
         padding: 0 .5rem;
       }
@@ -43,17 +46,12 @@
 
     .result-details-row {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
-      padding: .5rem 0;
-
-      &:first-of-type {
-        padding-top: 0;
-      }
-      &:last-of-type {
-        padding-bottom: 0;
-      }
 
       .result-detail {
+        padding: .5rem 0;
+
         width: 50%;
         min-width: 200px;
         display: flex;

@@ -1,16 +1,71 @@
+@import './styles/variables';
+
 .App {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
 
-  padding: 4rem 5rem;
+  padding: 4rem 1.5rem;
   box-sizing: border-box;
   min-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
 
   .result-container {
     background: #FFF;
     border-radius: 20px;
     padding: 4rem 5rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .background-blob {
+    z-index: -1;
+    position: absolute;
+  }
+
+  .blob-1 {
+    top: -250px;
+    left: -250px;
+    width: 800px;
+
+    path {
+      fill: transparentize($accent-2, 0.9);
+    }
+  }
+
+  .blob-2 {
+    top: calc(50% - 250px);
+    left: 50%;
+
+    width: 600px;
+    transform: rotate(45deg);
+
+    path {
+      fill: transparentize($accent-1, 0.8);
+    }
+  }
+
+  .blob-3 {
+    top: 60%;
+    left: calc(50% - 400px);
+
+    width: 400px;
+
+    path {
+      fill: transparentize($accent-2, 0.7);
+    }
+  }
+}
+
+@media screen and (max-width: $small) {
+  .App {
+    padding: 2rem 1.5rem;
+
+    .result-container {
+      padding: 4rem 2rem;
+    }
   }
 }
