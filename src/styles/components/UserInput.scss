@@ -15,7 +15,7 @@
       font-size: 1.2rem;
       font-weight: 300;
       border: 1px solid $accent-1;
-      border-right: none;
+      border-right: 0;
       border-bottom-left-radius: 4px;
       border-top-left-radius: 4px;
       background-color: desaturate(lighten($background-1, 20%), 35%);
