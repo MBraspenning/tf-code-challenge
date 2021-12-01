@@ -69,6 +69,20 @@
   .App {
     padding: 2rem 1.5rem;
 
+    .blob-1 {
+      top: -150px;
+      left: -150px;
+      width: 400px;
+    }
+
+    .blob-2 {
+      width: 400px;
+    }
+
+    .blob-3 {
+      top: 40%;
+    }
+
     .result-container {
       padding: 4rem 2rem;
     }
