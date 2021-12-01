@@ -22,6 +22,16 @@ describe('UserInput', () => {
         expect(getByTestId('city-input')).toHaveValue('');
     });
 
+    it('Should clear text input with clear button', () => {
+        const { getByTestId } = renderWith(<UserInput />, { mockInitialState: { city: 'Antwerp' } });
+
+        expect(getByTestId('city-input')).toHaveValue('Antwerp');
+
+        userEvent.click(getByTestId('city-clear'));
+
+        expect(getByTestId('city-input')).toHaveValue('');
+    });
+
     it('Should submit value with Enter key', () => {
         const mockDispatch = jest.fn();
 
