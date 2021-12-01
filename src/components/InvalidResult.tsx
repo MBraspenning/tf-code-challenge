@@ -2,7 +2,7 @@ import React from 'react';
 
 const InvalidResult = () => {
     return (
-        <div className='result-invalid'>
+        <div data-testid='result-invalid' className='result-invalid'>
             <p>
                 Oops... It seems like the city you requested could not be found.
             </p>
